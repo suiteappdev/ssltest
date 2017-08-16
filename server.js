@@ -2,9 +2,9 @@ var https = require('https');
 var fs = require('fs');
 
 var options = {
-  key: fs.readFileSync('/etc/letsencrypt/live/daimont.com/privkey.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/daimont.com/cert.pem'),
-  ca: fs.readFileSync('/etc/letsencrypt/live/daimont.com/chain.pem')
+  key: fs.readFileSync('privkey.pem'),
+  cert: fs.readFileSync('cert.pem'),
+  ca: fs.readFileSync('chain.pem')
 };
 
 https.createServer(options, function (req, res) {
