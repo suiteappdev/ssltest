@@ -1,6 +1,6 @@
 // content of index.js
 var http = require('http')  
-var port = 80
+var port = 8443
 
 var requestHandler = (request, response) => {  
   console.log(request.url)
