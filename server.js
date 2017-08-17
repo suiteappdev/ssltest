@@ -1,13 +1,18 @@
-var https = require('https');
-var fs = require('fs');
+// content of index.js
+var http = require('http')  
+var port = 80
 
-var options = {
-  key: fs.readFileSync('../privkey.pem'),
-  cert: fs.readFileSync('../cert.pem'),
-  ca: fs.readFileSync('../chain.pem')
-};
+var requestHandler = (request, response) => {  
+  console.log(request.url)
+  response.end('Hello Node.js Server!')
+}
 
-https.createServer(options, function (req, res) {
-  res.writeHead(200);
-  res.end("hello world\n");
-}).listen(8000);
+var server = http.createServer(requestHandler)
+
+server.listen(port, (err) => {  
+  if (err) {
+    return console.log('something bad happened', err)
+  }
+
+  console.log(`server is listening on ${port}`)
+})
